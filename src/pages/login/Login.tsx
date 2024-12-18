@@ -9,7 +9,7 @@ export function Login() {
   const redirect = useNavigate()
   const handleFinish = async (loginDto: LoginDto) => {
     await login(loginDto)
-    redirect('/')
+    redirect('/web-project-internet-shop')
   }
   return (
     <LoginWrapper>

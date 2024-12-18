@@ -9,17 +9,16 @@ const __dirname = dirname(__filename)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react()],
-    base: '.',
-    resolve: {
-        alias: {
-            '@app': resolve(__dirname, './src/app/index.ts'),
-            '@pages': resolve(__dirname, './src/pages/index.ts'),
-            '@widgets': resolve(__dirname, './src/widgets'),
-            '@features': resolve(__dirname, './src/features'),
-            '@entities': resolve(__dirname, './src/entities'),
-            '@shared': resolve(__dirname, './src/shared')
-        }
+  plugins: [react()],
+  base: '/web-project-internet-shop/',
+  resolve: {
+    alias: {
+      '@app': resolve(__dirname, './src/app/index.ts'),
+      '@pages': resolve(__dirname, './src/pages/index.ts'),
+      '@widgets': resolve(__dirname, './src/widgets'),
+      '@features': resolve(__dirname, './src/features'),
+      '@entities': resolve(__dirname, './src/entities'),
+      '@shared': resolve(__dirname, './src/shared')
     }
+  }
 })
-

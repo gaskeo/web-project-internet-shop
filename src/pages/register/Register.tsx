@@ -5,22 +5,23 @@ import styled from 'styled-components'
 
 import { RegisterDto, useRegister } from '@shared/api/register'
 
+type RegisterFormData = RegisterDto & { passwordAgain: string }
 export function Register() {
   const { register, isLoading, error } = useRegister()
   const [formError, setFormError] = useState<string | null>(null)
   const redirect = useNavigate()
-  const handleFinish = async (registerDto: RegisterDto & { passwordAgain: string }) => {
+  const handleFinish = async (registerDto: RegisterFormData) => {
     if (registerDto.password === registerDto.passwordAgain) {
       setFormError(null)
       await register(registerDto)
-      redirect('/')
+      redirect('/web-project-internet-shop')
     } else {
       setFormError('Пароли не совпадают')
     }
   }
   return (
     <RegisterWrapper>
-      <FormWrapper onFinish={handleFinish}>
+      <FormWrapper onFinish={handleFinish as (values: unknown) => void}>
         <Typography.Title>Регистрация</Typography.Title>
         <Space size={28} direction="vertical">
           <Form.Item layout="vertical" label="Электронная почта" name="email">
@@ -38,7 +39,7 @@ export function Register() {
           </Button>
         </Space>
         {(error || formError) && (
-          <Typography.Text type="danger">{error ? error : formError}</Typography.Text>
+          <Typography.Text type="danger">{error ? String(error) : formError}</Typography.Text>
         )}
       </FormWrapper>
     </RegisterWrapper>

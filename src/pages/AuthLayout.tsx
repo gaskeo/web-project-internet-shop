@@ -5,7 +5,7 @@ import {
   UserOutlined
 } from '@ant-design/icons'
 import { Layout, Menu, theme } from 'antd'
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { useCurrentUser, useLogout } from '@shared/api'
@@ -27,7 +27,9 @@ export function AuthLayout() {
     <Layout>
       <Layout.Header style={{ display: 'flex', justifyContent: 'space-between' }}>
         <LogoContainer>
-          <GlobalOutlined />
+          <Link to="/web-project-internet-shop">
+            <GlobalOutlined />
+          </Link>
         </LogoContainer>
         <Menu
           selectedKeys={[getSelectedKey(location?.pathname ?? '')]}
@@ -37,12 +39,12 @@ export function AuthLayout() {
             {
               key: 'catalog',
               label: 'Каталог',
-              onClick: () => redirect('/')
+              onClick: () => redirect('/web-project-internet-shop')
             },
             {
               key: 'sales',
               label: 'Выгодно!',
-              onClick: () => redirect('/sales')
+              onClick: () => redirect('/web-project-internet-shop/sales')
             }
           ]}
         />
@@ -59,7 +61,7 @@ export function AuthLayout() {
                 key: 'cart',
                 label: 'Корзина',
                 icon: <ShoppingCartOutlined />,
-                onClick: () => redirect('/cart')
+                onClick: () => redirect('/web-project-internet-shop/cart')
               },
               {
                 key: 'user',
@@ -84,12 +86,12 @@ export function AuthLayout() {
                 {
                   key: 'login',
                   label: 'Вход',
-                  onClick: () => redirect('/login')
+                  onClick: () => redirect('/web-project-internet-shop/login')
                 },
                 {
                   key: 'register',
                   label: 'Регистрация',
-                  onClick: () => redirect('/register')
+                  onClick: () => redirect('/web-project-internet-shop/register')
                 }
               ]}
             />

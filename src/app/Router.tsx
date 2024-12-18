@@ -4,33 +4,33 @@ import { AuthLayout, Login, Products, Sales, Register, Cart, Product } from '@pa
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/web-project-internet-shop',
     element: <AuthLayout />,
     children: [
       {
-        path: '/',
+        path: '/web-project-internet-shop',
         element: <Products />
       },
       {
-        path: '/sales',
+        path: '/web-project-internet-shop/sales',
         element: <Sales />
       },
       {
-        path: '/cart',
+        path: '/web-project-internet-shop/cart',
         element: <Cart />
       },
       {
-        path: '/product/:productId',
+        path: '/web-project-internet-shop/product/:productId',
         element: <Product />
       }
     ]
   },
   {
-    path: '/login',
+    path: '/web-project-internet-shop/login',
     element: <Login />
   },
   {
-    path: '/register',
+    path: '/web-project-internet-shop/register',
     element: <Register />
   }
 ])

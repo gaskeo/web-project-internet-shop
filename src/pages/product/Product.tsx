@@ -27,7 +27,9 @@ export function Product() {
         <DescriptionBlock>
           <Typography.Title>{product.title}</Typography.Title>
           <Button
-            onClick={() => addToCart({ userId: user?.uid ?? '', productId })}
+            onClick={() =>
+              addToCart({ userId: user?.uid ?? '', productId: productId ?? '', count: 1 })
+            }
             disabled={addLoading || addedToCart}
             icon={
               addLoading ? (
@@ -84,6 +86,7 @@ const DescriptionBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   & > *:first-child {
     margin-top: 0;
     margin-bottom: 0;

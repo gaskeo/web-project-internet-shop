@@ -9,8 +9,8 @@ export type ProductGridProps = {
 }
 
 export function ProductGrid(props: ProductGridProps) {
-  const { addToCart } = useAddToCart()
   const { user } = useCurrentUser()
+  const { addToCart } = useAddToCart(user?.uid ?? '')
 
   const { cart } = useCart(user?.uid ?? '')
   const addedToCart = useMemo(() => cart.map((c) => c.id.split('_').at(-1)), [cart])

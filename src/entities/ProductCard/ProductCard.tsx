@@ -31,7 +31,7 @@ export function ProductCard(props: ProductCardProps) {
       <ProductImage src={product.image} alt={product.title} />
       <ProductContentWrapper>
         <Typography.Title style={{ margin: 0 }} level={5} ellipsis={{ rows: 2 }}>
-          <Link to={`/product/${product.id}`}>{product.title}</Link>
+          <Link to={`/web-project-internet-shop/product/${product.id}`}>{product.title}</Link>
         </Typography.Title>
         <Space>
           <Typography.Text delete={Boolean(product.sale)}>{product.price} ₽</Typography.Text>
